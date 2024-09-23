@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <script>
+        let products = [
+            { name: 'banana', price: 10 },
+            { name: 'Apple', price: 20 },
+            { name: 'orange', price: 30 }
+        ];
+
+        
+        products.sort((a, b) => {
+            return a.name.localeCompare(b.name);  
+        });
+
+        
+        function loadData() {
+            products.forEach(product => {
+                const tr = document.createElement('tr');
+                const tdName = document.createElement('td');
+                const tdPrice = document.createElement('td');
+
+                tdName.innerText = product.name; 
+                tdPrice.innerText = product.price;  
+
+                tr.appendChild(tdName);
+                tr.appendChild(tdPrice);
+                document.querySelector("tbody").appendChild(tr);
+            });
+        }
+
+        
+        window.onload = loadData;  
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody> 
+        </tbody>
+    </table>
+</body>
+</html>
